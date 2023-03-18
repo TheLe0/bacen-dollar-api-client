@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Bacen.Dollar.Api.Client.Common
 {
@@ -28,6 +29,11 @@ namespace Bacen.Dollar.Api.Client.Common
         protected BacenDollarBaseClient(string baseUrl)
         {
             httpClient = new BacenDollarHttpClient(baseUrl);
+        }
+
+        protected Task<T> GetAsync<T>(string parameters)
+        {
+            return httpClient.GetAsync<T>(parameters);
         }
     }
 }

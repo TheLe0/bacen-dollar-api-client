@@ -2,7 +2,9 @@
 using RestSharp;
 using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Bacen.Dollar.Api.Client.Common
 {
@@ -32,6 +34,15 @@ namespace Bacen.Dollar.Api.Client.Common
         public string GetBaseUrl()
         {
             return _configuration.BaseUrl;
+        }
+
+        public Task<T> GetAsync<T>(string parameters)
+        {
+            var fullEndpoint = _configuration.BaseUrl
+                + parameters
+                + "&$format=json";
+
+            return _client.GetJsonAsync<T>(fullEndpoint);
         }
 
         private RestClientOptions GetConfigurations()

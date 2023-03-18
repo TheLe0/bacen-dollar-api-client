@@ -68,5 +68,23 @@ namespace Bacen.Dollar.Api.Client.Resources {
                 return ResourceManager.GetString("BaseUrl", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CotacaoDolarDia(dataCotacao=@dataCotacao)?.
+        /// </summary>
+        internal static string DailyDollarQuotation {
+            get {
+                return ResourceManager.GetString("DailyDollarQuotation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CotacaoDolarPeriodo(dataInicial=@dataInicial,dataFinalCotacao=@dataFinalCotacao)?.
+        /// </summary>
+        internal static string PeriodicDollarQuotation {
+            get {
+                return ResourceManager.GetString("PeriodicDollarQuotation", resourceCulture);
+            }
+        }
     }
 }
