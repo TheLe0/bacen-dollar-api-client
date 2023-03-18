@@ -1,6 +1,7 @@
-﻿using System;
+﻿using Bacen.Dollar.Api.Client.Responses;
+using System;
 
-namespace Bacen.Dollar.Api.Client.Responses
+namespace Bacen.Dollar.Api.Client.Models
 {
     public class DollarQuotation
     {

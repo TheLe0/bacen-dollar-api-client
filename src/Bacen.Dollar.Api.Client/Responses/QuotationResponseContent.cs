@@ -3,13 +3,13 @@ using System.Text.Json.Serialization;
 
 namespace Bacen.Dollar.Api.Client.Responses
 {
-    internal class QuotationResponseContent
+    public class QuotationResponseContent
     {
         [JsonPropertyName("cotacaoCompra")]
-        internal decimal PurchaseQuote { get; set; }
+        public decimal PurchaseQuote { get; set; }
         [JsonPropertyName("cotacaoVenda")]
-        internal decimal WithdrawQuote { get; set; }
+        public decimal WithdrawQuote { get; set; }
         [JsonPropertyName("dataHoraCotacao")]
-        internal DateTime QuotationDateTime { get; set; }
+        public string QuotationDateTime { get; set; }
     }
 }

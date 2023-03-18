@@ -70,7 +70,7 @@ namespace Bacen.Dollar.Api.Client.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to CotacaoDolarDia(dataCotacao=@dataCotacao)?.
+        ///   Looks up a localized string similar to CotacaoDolarDia(dataCotacao=@dataCotacao).
         /// </summary>
         internal static string DailyDollarQuotation {
             get {
@@ -79,7 +79,7 @@ namespace Bacen.Dollar.Api.Client.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to CotacaoDolarPeriodo(dataInicial=@dataInicial,dataFinalCotacao=@dataFinalCotacao)?.
+        ///   Looks up a localized string similar to CotacaoDolarPeriodo(dataInicial=@dataInicial,dataFinalCotacao=@dataFinalCotacao).
         /// </summary>
         internal static string PeriodicDollarQuotation {
             get {

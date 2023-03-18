@@ -121,9 +121,9 @@
     <value>https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/</value>
   </data>
   <data name="DailyDollarQuotation" xml:space="preserve">
-    <value>CotacaoDolarDia(dataCotacao=@dataCotacao)?</value>
+    <value>CotacaoDolarDia(dataCotacao=@dataCotacao)</value>
   </data>
   <data name="PeriodicDollarQuotation" xml:space="preserve">
-    <value>CotacaoDolarPeriodo(dataInicial=@dataInicial,dataFinalCotacao=@dataFinalCotacao)?</value>
+    <value>CotacaoDolarPeriodo(dataInicial=@dataInicial,dataFinalCotacao=@dataFinalCotacao)</value>
   </data>
 </root>

@@ -1,5 +1,7 @@
 ﻿using Bacen.Dollar.Api.Client.Common;
 using Bacen.Dollar.Api.Client.Configurations;
+using Bacen.Dollar.Api.Client.Extensions;
+using Bacen.Dollar.Api.Client.Models;
 using Bacen.Dollar.Api.Client.Resources;
 using Bacen.Dollar.Api.Client.Responses;
 using System;
@@ -21,52 +23,41 @@ namespace Bacen.Dollar.Api.Client
         {
             var parameters = Routes.DailyDollarQuotation;
 
-            parameters += "?@dataCotacao=" + date.ToString();
+            parameters += "?@dataCotacao='" + 
+                date.FormatToBacenDollarApi() +
+                "'";
 
             var response = await GetAsync<DollarQuotationResponse>(parameters)
                     .ConfigureAwait(false);
 
-            if (response == null || 
-                !response.QuotationContent.Any()) return null;
+            if (response == null) return null;
+            if (response.QuotationContent == null) return null;
 
-            var responseContent = response.QuotationContent.SingleOrDefault();
-
-            return new DollarQuotation
-            {
-                WithdrawQuote = responseContent.WithdrawQuote,
-                PurchaseQuote = responseContent.PurchaseQuote,
-                QuoteDate = responseContent.QuotationDateTime
-            };
+            return response.QuotationContent
+                .SingleOrDefault()
+                .ToDollarQuotation();
         }
 
         public async Task<IList<DollarQuotation>> PeriodicDollarQuotationAsync(DateTime fromDate, DateTime toDate)
         {
-            var dolarQuotationList = new List<DollarQuotation>();
             var parameters = Routes.PeriodicDollarQuotation;
 
-            parameters += "?@dataInicial=" + fromDate.ToString();
-            parameters += "&@dataFinalCotacao=" + toDate.ToString();
+            parameters += "?@dataInicial='" +
+                fromDate.FormatToBacenDollarApi() +
+                "'";
+            parameters += "&@dataFinalCotacao='" +
+                toDate.FormatToBacenDollarApi() +
+                "'";
 
             var response = await GetAsync<DollarQuotationResponse>(parameters)
                     .ConfigureAwait(false);
 
-            if (response == null ||
-                !response.QuotationContent.Any()) return null;
+            if (response == null) return null;
+            if (response.QuotationContent == null) return null;
 
-            var responseContent = response.QuotationContent;
+            return response.QuotationContent
+                .ToDollarQuotationList();
 
-            foreach (var content in responseContent)
-            {
-                dolarQuotationList.Add(new DollarQuotation
-                {
-                    WithdrawQuote = content.WithdrawQuote,
-                    PurchaseQuote = content.PurchaseQuote,
-                    QuoteDate = content.QuotationDateTime
-
-                });
-            }
-
-            return dolarQuotationList;
         }
     }
 }

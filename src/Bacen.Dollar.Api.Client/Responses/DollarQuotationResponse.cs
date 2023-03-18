@@ -3,11 +3,11 @@ using System.Text.Json.Serialization;
 
 namespace Bacen.Dollar.Api.Client.Responses
 {
-    internal class DollarQuotationResponse
+    public class DollarQuotationResponse
     {
         [JsonPropertyName("@odata.context")]
-        internal string Context { get; set; }
+        public string Context { get; set; }
         [JsonPropertyName("value")]
-        internal IList<QuotationResponseContent> QuotationContent { get; set; }
+        public IList<QuotationResponseContent> QuotationContent { get; set; }
     }
 }

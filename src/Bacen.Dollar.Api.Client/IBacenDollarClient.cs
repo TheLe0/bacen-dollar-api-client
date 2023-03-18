@@ -1,4 +1,4 @@
-﻿using Bacen.Dollar.Api.Client.Responses;
+﻿using Bacen.Dollar.Api.Client.Models;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
