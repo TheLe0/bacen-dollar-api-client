@@ -17,7 +17,7 @@ namespace Bacen.Dollar.Api.Client
         public BacenDollarClient(BacenDollarClientConfiguration configuration) : base(configuration) { }
         public BacenDollarClient(IBacenDollarHttpClient restApiClient) : base(restApiClient) { }
 
-        public async Task<DollarQuotation> DailyDollarQuotation(DateTime date)
+        public async Task<DollarQuotation> DailyDollarQuotationAsync(DateTime date)
         {
             var parameters = Routes.DailyDollarQuotation;
 
@@ -39,7 +39,7 @@ namespace Bacen.Dollar.Api.Client
             };
         }
 
-        public async Task<IList<DollarQuotation>> PeriodicDollarQuotation(DateTime fromDate, DateTime toDate)
+        public async Task<IList<DollarQuotation>> PeriodicDollarQuotationAsync(DateTime fromDate, DateTime toDate)
         {
             var dolarQuotationList = new List<DollarQuotation>();
             var parameters = Routes.PeriodicDollarQuotation;

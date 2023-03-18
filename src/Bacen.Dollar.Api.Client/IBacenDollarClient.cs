@@ -7,7 +7,7 @@ namespace Bacen.Dollar.Api.Client
 {
     public interface IBacenDollarClient
     {
-        Task<DollarQuotation> DailyDollarQuotation(DateTime date);
-        Task<IList<DollarQuotation>> PeriodicDollarQuotation(DateTime fromDate, DateTime toDate);
+        Task<DollarQuotation> DailyDollarQuotationAsync(DateTime date);
+        Task<IList<DollarQuotation>> PeriodicDollarQuotationAsync(DateTime fromDate, DateTime toDate);
     }
 }
