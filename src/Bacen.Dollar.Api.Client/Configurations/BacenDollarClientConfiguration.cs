@@ -24,7 +24,7 @@ namespace Bacen.Dollar.Api.Client.Configurations
 
         private void SetupDefaultConfigs()
         {
-            MaxTimeout = 1000;
+            MaxTimeout = 10000;
             ThrowOnAnyError = true;
         }
     }
