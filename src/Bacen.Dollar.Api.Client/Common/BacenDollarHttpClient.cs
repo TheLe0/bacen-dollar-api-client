@@ -1,9 +1,5 @@
 ﻿using Bacen.Dollar.Api.Client.Configurations;
 using RestSharp;
-using System;
-using System.Collections.Generic;
-using System.Net;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Bacen.Dollar.Api.Client.Common
