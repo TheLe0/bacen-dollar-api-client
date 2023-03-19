@@ -73,7 +73,7 @@ namespace Bacen.Dollar.Api.Client.IntegrationTest
             var configs = new BacenDollarClientConfiguration
             {
                 BaseUrl = baseUrl,
-                MaxTimeout = 1000,
+                MaxTimeout = 10000,
                 ThrowOnAnyError = false
             };
 
@@ -96,7 +96,7 @@ namespace Bacen.Dollar.Api.Client.IntegrationTest
             var configs = new BacenDollarClientConfiguration
             {
                 BaseUrl = baseUrl,
-                MaxTimeout = 1000,
+                MaxTimeout = 10000,
                 ThrowOnAnyError = false
             };
 
