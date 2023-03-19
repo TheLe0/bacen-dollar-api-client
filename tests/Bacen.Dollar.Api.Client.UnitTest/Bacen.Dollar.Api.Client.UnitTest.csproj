@@ -23,4 +23,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Bacen.Dollar.Api.Client\Bacen.Dollar.Api.Client.csproj" />
+  </ItemGroup>
+
 </Project>
