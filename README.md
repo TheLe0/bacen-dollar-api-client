@@ -8,8 +8,8 @@ This is a REST API client for the .NET plataform that gives you information abou
 
    | Package | Version | Downloads | Workflow | 
    |---------|---------|-----------|----------| 
-   | Bacen.Dollar.Api.Client | [![NuGet Version](https://img.shields.io/nuget/v/Bacen.Dollar.Api.Client.svg)](https://www.nuget.org/packages/Bacen.Dollar.Api.Client/ "NuGet Version")| [![NuGet Downloads](https://img.shields.io/nuget/dt/Bacen.Dollar.Api.Client.svg)](https://www.nuget.org/packages/Bacen.Dollar.Api.Client/ "NuGet Downloads") | [![Deploy](https://github.com/TheLe0/bacen-dollar-api-client/actions/workflows/deploy_nuget_api_client.yml/badge.svg)](https://github.com/TheLe0/bacen-dollar-api-client/actions/workflows/deploy_nuget_api_client.yml) |
-   | Bacen.Dollar.Api.Client.DependencyInjection | ![NuGet Version](https://img.shields.io/nuget/v/Bacen.Dollar.Api.Client.DependencyInjection.svg) | [![NuGet Downloads](https://img.shields.io/nuget/dt/Bacen.Dollar.Api.Client.DependencyInjection.svg)](https://www.nuget.org/packages/Bacen.Dollar.Api.Client.DependencyInjection/ "NuGet Downloads") | [![Deploy](https://github.com/TheLe0/bacen-dollar-api-client/actions/workflows/deploy_nuget_api_client_di.yml/badge.svg)](https://github.com/TheLe0/bacen-dollar-api-client/actions/workflows/deploy_nuget_api_client_di.yml) | 
+   | [Bacen.Dollar.Api.Client](https://www.nuget.org/packages/Bacen.Dollar.Api.Client/) | [![NuGet Version](https://img.shields.io/nuget/v/Bacen.Dollar.Api.Client.svg)](https://www.nuget.org/packages/Bacen.Dollar.Api.Client/ "NuGet Version")| [![NuGet Downloads](https://img.shields.io/nuget/dt/Bacen.Dollar.Api.Client.svg)](https://www.nuget.org/packages/Bacen.Dollar.Api.Client/ "NuGet Downloads") | [![Deploy](https://github.com/TheLe0/bacen-dollar-api-client/actions/workflows/deploy_nuget_api_client.yml/badge.svg)](https://github.com/TheLe0/bacen-dollar-api-client/actions/workflows/deploy_nuget_api_client.yml) |
+   | [Bacen.Dollar.Api.Client.DependencyInjection](https://www.nuget.org/packages/Bacen.Dollar.Api.Client.DependencyInjection/) | ![NuGet Version](https://img.shields.io/nuget/v/Bacen.Dollar.Api.Client.DependencyInjection.svg) | [![NuGet Downloads](https://img.shields.io/nuget/dt/Bacen.Dollar.Api.Client.DependencyInjection.svg)](https://www.nuget.org/packages/Bacen.Dollar.Api.Client.DependencyInjection/ "NuGet Downloads") | [![Deploy](https://github.com/TheLe0/bacen-dollar-api-client/actions/workflows/deploy_nuget_api_client_di.yml/badge.svg)](https://github.com/TheLe0/bacen-dollar-api-client/actions/workflows/deploy_nuget_api_client_di.yml) | 
 
 ## Endpoints
 
@@ -42,10 +42,22 @@ You can instanciate this client in three different ways:
 var client = new BacenDollarClient();
 ```
 
+or by dependency injection:
+
+```csharp
+services.AddBacenDollarApiClient();
+```
+
 2. Only configurating the API base url:
 
 ```csharp
 var client = new BacenDollarClient(baseUrl);
+```
+
+or by dependency injection:
+
+```csharp
+services.AddBacenDollarApiClient(baseUrl);
 ```
 
 3. And setup manually all configurations with your preferences:
@@ -61,3 +73,15 @@ var configs = new BacenDollarClientConfiguration
 var client = new BacenDollarClient(configs);
 ```
 
+or by dependency injection:
+
+```csharp
+var configs = new BacenDollarClientConfiguration
+{
+    BaseUrl = baseUrl,
+    MaxTimeout = 10000,
+    ThrowOnAnyError = false
+};
+
+services.AddBacenDollarApiClient(configs);
+```
