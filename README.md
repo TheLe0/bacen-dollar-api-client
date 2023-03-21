@@ -1,6 +1,6 @@
 # Bacen Dolar .NET Rest API Client
 
-![image](https://user-images.githubusercontent.com/40045069/226658485-933f31b1-395f-4583-8923-44fa6fedeb38.png)
+[![Test CI](https://github.com/TheLe0/LawBook/actions/workflows/pull_request.yml/badge.svg)](https://github.com/TheLe0/LawBook/actions/workflows/pull_request.yml)
 
 This is a REST API client for the .NET plataform that gives you information about the dollar quotation for all business days for both withdraw and purchase. 
 

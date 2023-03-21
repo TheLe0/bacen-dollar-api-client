@@ -5,8 +5,10 @@
     <Version>1.0.0</Version>
     <Authors>Leonardo Tosin</Authors>
     <PackageProjectUrl>https://github.com/TheLe0/bacen-dollar-api-client</PackageProjectUrl>
+    <PackageIconUrl>https://user-images.githubusercontent.com/40045069/226658485-933f31b1-395f-4583-8923-44fa6fedeb38.png</PackageIconUrl>
+    <PackageIcon>images\logo.jpeg</PackageIcon>
 	  <PackageTags>API Client Dollar quotaion</PackageTags>
-	  <Description>A .NET class validator. Create your own validations for your own classes</Description>
+	  <Description>A .NET client library for a dollar quotation REST API</Description>
 	  <Copyright>Copyright © Leonardo Tosin</Copyright>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
 	  <AssemblyVersion>1.0.0</AssemblyVersion>
