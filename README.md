@@ -9,7 +9,7 @@ This is a REST API client for the .NET plataform that gives you information abou
    | Package | Version | Downloads | Workflow | 
    |---------|---------|-----------|----------| 
    | Bacen.Dollar.Api.Client | [![NuGet Version](https://img.shields.io/nuget/v/Bacen.Dollar.Api.Client.svg)](https://www.nuget.org/packages/Bacen.Dollar.Api.Client/ "NuGet Version")| [![NuGet Downloads](https://img.shields.io/nuget/dt/Bacen.Dollar.Api.Client.svg)](https://www.nuget.org/packages/Bacen.Dollar.Api.Client/ "NuGet Downloads") | [![Deploy](https://github.com/TheLe0/bacen-dollar-api-client/actions/workflows/deploy_nuget_api_client.yml/badge.svg)](https://github.com/TheLe0/bacen-dollar-api-client/actions/workflows/deploy_nuget_api_client.yml) |
-   | Bacen.Dollar.Api.Client.DependencyInjection| - | - | - | 
+   | Bacen.Dollar.Api.Client.DependencyInjection | ![NuGet Version](https://img.shields.io/nuget/v/Bacen.Dollar.Api.Client.DependencyInjection.svg) | [![NuGet Downloads](https://img.shields.io/nuget/dt/Bacen.Dollar.Api.Client.DependencyInjection.svg)](https://www.nuget.org/packages/Bacen.Dollar.Api.Client.DependencyInjection/ "NuGet Downloads") | [![Deploy](https://github.com/TheLe0/bacen-dollar-api-client/actions/workflows/deploy_nuget_api_client_di.yml/badge.svg)](https://github.com/TheLe0/bacen-dollar-api-client/actions/workflows/deploy_nuget_api_client_di.yml) | 
 
 ## Endpoints
 
