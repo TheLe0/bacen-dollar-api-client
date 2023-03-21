@@ -1,12 +1,14 @@
 # Bacen Dolar .NET Rest API Client
 
+![image](https://user-images.githubusercontent.com/40045069/226658485-933f31b1-395f-4583-8923-44fa6fedeb38.png)
+
 This is a REST API client for the .NET plataform that gives you information about the dollar quotation for all business days for both withdraw and purchase. 
 
 ## Packages
 
    | Package | Version | Downloads | Workflow | 
    |---------|---------|-----------|----------| 
-   | Bacen.Dollar.Api.Client | - | - | - |
+   | Bacen.Dollar.Api.Client | [![NuGet Version](https://img.shields.io/nuget/v/Bacen.Dollar.Api.Client.svg)](https://www.nuget.org/packages/Bacen.Dollar.Api.Client/ "NuGet Version")| [![NuGet Downloads](https://img.shields.io/nuget/dt/Bacen.Dollar.Api.Client.svg)](https://www.nuget.org/packages/Bacen.Dollar.Api.Client/ "NuGet Downloads") | [![Deploy](https://github.com/TheLe0/bacen-dollar-api-client/actions/workflows/deploy_nuget_api_client.yml/badge.svg)](https://github.com/TheLe0/bacen-dollar-api-client/actions/workflows/deploy_nuget_api_client.yml) |
    | Bacen.Dollar.Api.Client.DependencyInjection| - | - | - | 
 
 ## Endpoints
