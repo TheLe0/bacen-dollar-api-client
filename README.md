@@ -1,11 +1,61 @@
-# bacen-dolar-api-client
-.NET Client of the BACEN Dolar's REST API 
+# Bacen Dolar .NET Rest API Client
 
-* Projeto base: https://github.com/vitaum88/api_bacen_dolar
-* Documentação API: https://dadosabertos.bcb.gov.br/dataset/dolar-americano-usd-todos-os-boletins-diarios/resource/ae69aa94-4194-45a6-8bae-12904af7e176
+This is a REST API client for the .NET plataform that gives you information about the dollar quotation for all business days for both withdraw and purchase. 
 
-### Endpoints:
+## Packages
 
-1. [Cotação Dólar Dia](https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/aplicacao#!/recursos/CotacaoDolarDia#eyJmb3JtdWxhcmlvIjp7IiRmb3JtYXQiOiJqc29uIiwiJHRvcCI6MTAwfX0=)
+   | Package | Version | Downloads | Workflow | 
+   |---------|---------|-----------|----------| 
+   | Bacen.Dollar.Api.Client | - | - | - |
+   | Bacen.Dollar.Api.Client.DependencyInjection| - | - | - | 
 
-2. [Cotação Dólar por Período](https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/aplicacao#!/recursos/CotacaoDolarPeriodo#eyJmb3JtdWxhcmlvIjp7IiRmb3JtYXQiOiJqc29uIiwiJHRvcCI6MTAwLCJkYXRhSW5pY2lhbCI6IjAzLTAxLTIwMjMiLCJkYXRhRmluYWxDb3RhY2FvIjoiMDMtMTgtMjAyMyJ9LCJwZXNxdWlzYWRvIjp0cnVlLCJhY3RpdmVUYWIiOiJ0YWJsZSIsImdyaWRTdGF0ZSI6ewMwAzpbewNCAyIEMAQiLANBA30sewNCAyIEMQQiLANBA30sewNCAyIEMgQiLANBA31dLAMxAzp7fSwDMgM6W10sAzMDOnt9LAM0Azp7fSwDNQM6e319LCJwaXZvdE9wdGlvbnMiOnsDYQM6e30sA2IDOltdLANjAzo1MDAsA2QDOltdLANlAzpbXSwDZgM6W10sA2cDOiJrZXlfYV90b196IiwDaAM6ImtleV9hX3RvX3oiLANpAzp7fSwDagM6e30sA2sDOjg1LANsAzpmYWxzZSwDbQM6e30sA24DOnt9LANvAzoiQ29udGFnZW0iLANwAzoiVGFibGUifX0=)
+## Endpoints
+
+1. [DailyDollarQuotationAsync](https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/aplicacao#!/recursos/CotacaoDolarDia#eyJmb3JtdWxhcmlvIjp7IiRmb3JtYXQiOiJqc29uIiwiJHRvcCI6MTAwfX0=): Gets the dollar quotation for a specific date;
+
+```csharp
+var dollarQuotation = await client.DailyDollarQuotationAsync(
+    new DateTime(2023, 3, 17)
+);
+```
+
+2. [PeriodicDollarQuotationAsync](https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/aplicacao#!/recursos/CotacaoDolarPeriodo#eyJmb3JtdWxhcmlvIjp7IiRmb3JtYXQiOiJqc29uIiwiJHRvcCI6MTAwLCJkYXRhSW5pY2lhbCI6IjAzLTAxLTIwMjMiLCJkYXRhRmluYWxDb3RhY2FvIjoiMDMtMTgtMjAyMyJ9LCJwZXNxdWlzYWRvIjp0cnVlLCJhY3RpdmVUYWIiOiJ0YWJsZSIsImdyaWRTdGF0ZSI6ewMwAzpbewNCAyIEMAQiLANBA30sewNCAyIEMQQiLANBA30sewNCAyIEMgQiLANBA31dLAMxAzp7fSwDMgM6W10sAzMDOnt9LAM0Azp7fSwDNQM6e319LCJwaXZvdE9wdGlvbnMiOnsDYQM6e30sA2IDOltdLANjAzo1MDAsA2QDOltdLANlAzpbXSwDZgM6W10sA2cDOiJrZXlfYV90b196IiwDaAM6ImtleV9hX3RvX3oiLANpAzp7fSwDagM6e30sA2sDOjg1LANsAzpmYWxzZSwDbQM6e30sA24DOnt9LANvAzoiQ29udGFnZW0iLANwAzoiVGFibGUifX0=): Gets the dollar quotation for an specific date interval.
+
+```csharp
+var dollarQuotation = await client.PeriodicDollarQuotationAsync(
+     new DateTime(2023, 3, 1),
+    new DateTime(2023, 3, 17)
+);
+```
+
+## Configuration
+
+This Api integration is ver simple, there is no authentication/authorization requirements, you can use it with almost no configurations.
+
+You can instanciate this client in three different ways:
+
+1. Using default configs: This uses the default [baseUrl](https://github.com/TheLe0/bacen-dollar-api-client/blob/4ff15805206d95600da34365d8b4248e3ba8120e/src/Bacen.Dollar.Api.Client/Resources/Routes.resx#L121), [timeout](https://github.com/TheLe0/bacen-dollar-api-client/blob/4ff15805206d95600da34365d8b4248e3ba8120e/src/Bacen.Dollar.Api.Client/Configurations/BacenDollarClientConfiguration.cs#L27) and [Throw on any error flag](https://github.com/TheLe0/bacen-dollar-api-client/blob/4ff15805206d95600da34365d8b4248e3ba8120e/src/Bacen.Dollar.Api.Client/Configurations/BacenDollarClientConfiguration.cs#L28).
+
+```csharp
+var client = new BacenDollarClient();
+```
+
+2. Only configurating the API base url:
+
+```csharp
+var client = new BacenDollarClient(baseUrl);
+```
+
+3. And setup manually all configurations with your preferences:
+
+```csharp
+var configs = new BacenDollarClientConfiguration
+{
+    BaseUrl = baseUrl,
+    MaxTimeout = 10000,
+    ThrowOnAnyError = false
+};
+
+var client = new BacenDollarClient(configs);
+```
+
