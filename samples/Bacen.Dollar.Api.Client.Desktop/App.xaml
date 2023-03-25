@@ -1,0 +1,9 @@
+﻿<Application x:Class="Bacen.Dollar.Api.Client.Desktop.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Bacen.Dollar.Api.Client.Desktop"
+             Startup="OnStartup">
+    <Application.Resources>
+         
+    </Application.Resources>
+</Application>
