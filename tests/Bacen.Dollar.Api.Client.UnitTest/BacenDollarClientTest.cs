@@ -1,6 +1,7 @@
 ﻿using Bacen.Dollar.Api.Client.Common;
 using Bacen.Dollar.Api.Client.Fixtures;
 using Bacen.Dollar.Api.Client.Responses;
+using RestSharp;
 
 namespace Bacen.Dollar.Api.Client.UnitTest
 {
@@ -19,7 +20,7 @@ namespace Bacen.Dollar.Api.Client.UnitTest
         public async void DailyDollarQuotationAsync_Success()
         {
             _mockHttpClient.Setup(_ =>
-                _.GetAsync<DollarQuotationResponse>(It.IsAny<string>()))
+                _.GetAsync<DollarQuotationResponse>(It.IsAny<RestRequest>()))
                 .ReturnsAsync(DollarQuotationResponseFixture.AutoGenerate(1));
 
             var dollarQuotation = await _client.DailyDollarQuotationAsync(DateTime.Now);
@@ -34,7 +35,7 @@ namespace Bacen.Dollar.Api.Client.UnitTest
         public async void DailyDollarQuotationAsync_Fail_NullResponse()
         {
             _mockHttpClient.Setup(_ =>
-                _.GetAsync<DollarQuotationResponse>(It.IsAny<string>()))
+                _.GetAsync<DollarQuotationResponse>(It.IsAny<RestRequest>()))
                 .ReturnsAsync((DollarQuotationResponse) null);
 
             var dollarQuotation = await _client.DailyDollarQuotationAsync(DateTime.Now);
@@ -52,7 +53,7 @@ namespace Bacen.Dollar.Api.Client.UnitTest
             };
 
             _mockHttpClient.Setup(_ =>
-                _.GetAsync<DollarQuotationResponse>(It.IsAny<string>()))
+                _.GetAsync<DollarQuotationResponse>(It.IsAny<RestRequest>()))
                 .ReturnsAsync(response);
 
             var dollarQuotation = await _client.DailyDollarQuotationAsync(DateTime.Now);
@@ -67,7 +68,7 @@ namespace Bacen.Dollar.Api.Client.UnitTest
         public async void PeriodicDollarQuotationAsync_Success(int numOfRecords)
         {
             _mockHttpClient.Setup(_ =>
-                _.GetAsync<DollarQuotationResponse>(It.IsAny<string>()))
+                _.GetAsync<DollarQuotationResponse>(It.IsAny<RestRequest>()))
                 .ReturnsAsync(DollarQuotationResponseFixture.AutoGenerate(numOfRecords));
 
             var dollarQuotation = await _client.PeriodicDollarQuotationAsync(
@@ -82,7 +83,7 @@ namespace Bacen.Dollar.Api.Client.UnitTest
         public async void PeriodicDollarQuotationAsync_Fail_NullResponse()
         {
             _mockHttpClient.Setup(_ =>
-                _.GetAsync<DollarQuotationResponse>(It.IsAny<string>()))
+                _.GetAsync<DollarQuotationResponse>(It.IsAny<RestRequest>()))
                 .ReturnsAsync((DollarQuotationResponse)null);
 
             var dollarQuotation = await _client.PeriodicDollarQuotationAsync(
@@ -102,7 +103,7 @@ namespace Bacen.Dollar.Api.Client.UnitTest
             };
 
             _mockHttpClient.Setup(_ =>
-                _.GetAsync<DollarQuotationResponse>(It.IsAny<string>()))
+                _.GetAsync<DollarQuotationResponse>(It.IsAny<RestRequest>()))
                 .ReturnsAsync(response);
             
             var dollarQuotation = await _client.PeriodicDollarQuotationAsync(

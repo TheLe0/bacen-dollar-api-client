@@ -32,13 +32,9 @@ namespace Bacen.Dollar.Api.Client.Common
             return _configuration.BaseUrl;
         }
 
-        public Task<T> GetAsync<T>(string parameters)
+        public Task<T> GetAsync<T>(RestRequest request)
         {
-            var fullEndpoint = _configuration.BaseUrl
-                + parameters
-                + "&$format=json";
-
-            return _client.GetJsonAsync<T>(fullEndpoint);
+            return _client.GetAsync<T>(request);
         }
 
         private RestClientOptions GetConfigurations()
