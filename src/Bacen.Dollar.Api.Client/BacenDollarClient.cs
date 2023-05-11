@@ -21,13 +21,12 @@ namespace Bacen.Dollar.Api.Client
 
         public async Task<DollarQuotation> DailyDollarQuotationAsync(DateTime date)
         {
-            var parameters = Routes.DailyDollarQuotation;
+            Endpoint.AppendPathSegment(Routes.DailyDollarQuotation);
 
-            parameters += "?@dataCotacao='" + 
-                date.FormatToBacenDollarApi() +
-                "'";
+            if (date != null)
+                Endpoint.SetQueryParam("@dataCotacao", date.FormatToBacenDollarApi());
 
-            var response = await GetAsync<DollarQuotationResponse>(parameters)
+            var response = await GetAsync<DollarQuotationResponse>()
                     .ConfigureAwait(false);
 
             if (response == null) return null;
@@ -40,16 +39,15 @@ namespace Bacen.Dollar.Api.Client
 
         public async Task<IList<DollarQuotation>> PeriodicDollarQuotationAsync(DateTime fromDate, DateTime toDate)
         {
-            var parameters = Routes.PeriodicDollarQuotation;
+            Endpoint.AppendPathSegment(Routes.PeriodicDollarQuotation);
 
-            parameters += "?@dataInicial='" +
-                fromDate.FormatToBacenDollarApi() +
-                "'";
-            parameters += "&@dataFinalCotacao='" +
-                toDate.FormatToBacenDollarApi() +
-                "'";
+            if (fromDate != null)
+                Endpoint.SetQueryParam("@dataInicial", fromDate.FormatToBacenDollarApi());
 
-            var response = await GetAsync<DollarQuotationResponse>(parameters)
+            if (toDate != null)
+                Endpoint.SetQueryParam("@dataFinalCotacao", toDate.FormatToBacenDollarApi());
+
+            var response = await GetAsync<DollarQuotationResponse>()
                     .ConfigureAwait(false);
 
             if (response == null) return null;

@@ -10,9 +10,9 @@ namespace Bacen.Dollar.Api.Client.Extensions
             var month = date.Month;
             var year = date.Year;
 
-            return month + "-" + 
+            return "'" + month + "-" + 
                 day + "-" +
-                year;
+                year + "'";
         }
     }
 }
