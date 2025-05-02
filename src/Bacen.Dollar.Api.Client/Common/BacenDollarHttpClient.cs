@@ -1,5 +1,6 @@
 ﻿using Bacen.Dollar.Api.Client.Configurations;
 using RestSharp;
+using System;
 using System.Threading.Tasks;
 
 namespace Bacen.Dollar.Api.Client.Common
@@ -42,7 +43,7 @@ namespace Bacen.Dollar.Api.Client.Common
             return new RestClientOptions(_configuration.BaseUrl)
             {
                 ThrowOnAnyError = _configuration.ThrowOnAnyError,
-                MaxTimeout = _configuration.MaxTimeout
+                Timeout = TimeSpan.FromMilliseconds(_configuration.MaxTimeout)
             };
         }
     }

@@ -150,7 +150,7 @@ namespace Bacen.Dollar.Api.Client.IntegrationTest
                 new DateTime(2023, 3, 17)
             );
 
-            await Assert.ThrowsAsync<JsonException>(act);
+            await Assert.ThrowsAsync<InvalidOperationException>(act);
         }
     }
 }
